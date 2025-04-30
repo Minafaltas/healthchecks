@@ -216,8 +216,8 @@ class Check(models.Model):
     success_keywords = models.TextField(blank=True, help_text="Comma-separated list of success keywords.")
     failure_keywords = models.TextField(blank=True, help_text="Comma-separated list of failure keywords.")
 
-    min_duration = models.IntegerField(null=True, default=0)
-    max_duration = models.IntegerField(null=True, default=0)
+    min_duration = models.DurationField(null=True, blank=True, default=td(seconds=0))
+    max_duration = models.DurationField(null=True, blank=True, default=td(seconds=0))
 
     class Meta:
         indexes = [
